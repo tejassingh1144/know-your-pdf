@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -24,3 +24,9 @@ class Prompt(BaseModel):
 async def root(prompt : Prompt):
     print(prompt)
     # return {'message' : 'received'}
+
+@app.post("/upload")
+async def upload_file(pdf: UploadFile = File(...)):
+    contents = await pdf.read()
+    print(contents)
+    # return {"filename": file.filename, "username": username, "file_size": len(contents)}
