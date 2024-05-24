@@ -1,20 +1,31 @@
 import React,{useState} from 'react';
+import axios from 'axios';
 
 const ChatInput : React.FC = () =>{
-    const [text,setText] = useState<string>('');
+    const [prompt,setPrompt] = useState<string>('');
     const handleChange = (e : React.ChangeEvent<HTMLInputElement>) : void =>{
-        setText(e.target.value);
+        setPrompt(e.target.value);
+    };
+    const handleSubmit = async ( e : React.FormEvent<HTMLFormElement>) =>{
+        e.preventDefault();
+        try{
+            // console.log(prompt);
+            const response = axios.post('http://127.0.0.1:8000/',{'prompt' : prompt});
+        }catch(err){
+            console.log(err);
+        }
     };
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input 
+                    id = 'prompt'
                     type = 'text'
-                    value = {text}
+                    value = {prompt}
                     placeholder = 'Type here...'
                     onChange = {handleChange}
                 />
-                <button type = 'submit'>Icon</button>
+                <button type ='submit'>Icon</button>
             </form>
         </div>
     )
