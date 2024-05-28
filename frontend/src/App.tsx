@@ -1,11 +1,9 @@
 import React from 'react';
-import ChatInput from './components/ChatInput'
-import FileUploadComponent from './components/fileUploadComponent';
+import Home from './pages/Home'
 const App : React.FC = () => {
     return (
         <div>
-            <FileUploadComponent/>
-            <ChatInput/>
+            <Home></Home>
         </div>
     )
 }
