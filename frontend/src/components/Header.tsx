@@ -1,6 +1,6 @@
 import React from 'react'
 import {QuestionOutlined} from '@ant-design/icons'
-import { Typography } from 'antd'
+import { Flex,Typography,Avatar } from 'antd'
 import FileUploadComponent from './FileUploadComponent';
 
 const {Title} = Typography;
@@ -10,13 +10,13 @@ const Header : React.FC = () => {
         display : 'flex'
     };
     return (
-        <div style = {{display:'flex',justifyContent:'space-between'}}>
-            <div style={{display:'flex'}}>
-                <div style={{border:'solid',display : 'flex',alignItems:'center',justifyContent:'center'}}>-NA-</div>
-                <Title level={4}>Chat app</Title>
-            </div>
+        <Flex justify='space-between' align='center'>
+            <Flex justify='center' align='center'>
+                <Avatar icon={<QuestionOutlined/>}/>
+                <Title level={4} style={{margin:'10px 1px'}}>Chat app</Title>
+            </Flex>
             <FileUploadComponent/>
-        </div>
+        </Flex>
     )
 }
 export default Header;
