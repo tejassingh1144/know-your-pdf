@@ -5,7 +5,7 @@ import { Button, message, Upload } from 'antd';
 
 const props: UploadProps = {
   name: 'file',
-  action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
+  action: 'http://127.0.0.1:8000/accepting_file',
   headers: {
     authorization: 'authorization-text',
   },
