@@ -8,12 +8,11 @@ const ChatBox : React.FC = () => {
 
     }
     return (
-        <Flex vertical style={{flex:1}}>
-            <Flex vertical style={{flex:1}} justify='flex-end'>
-                <ChatElement text='Dummy answer' path='/spider.png' />
-                <ChatElement text='Dummy Question' path='/user.svg' />
+        <Flex vertical>
+            <Flex className='ChatSpace' vertical style={{height:'90vh',overflowY:'scroll'}}>
+                <ChatElement text='You can start here' path='/spider.png'/>
             </Flex>
-            <Flex style={{flex:0}}>
+            <Flex className='ChatInput'>
                 <Search  allowClear={true} onSearch={handleSearch} />
             </Flex>
         </Flex>
